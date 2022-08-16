@@ -13,7 +13,7 @@ The training pipeline: a hierarchical partition tree is built to divide the scen
 ![](figs/fig_infer.png)
 The camera pose estimation pipeline: given a query image, the trained network infers correspondences between image pixels and scene regions. Since each scene region corresponds to a set of scene coordinates, 2D-3D correspondences are built between image pixels and scene coordinates. Followed by a PnP algorithm with RANSAC, the camera pose is solved by optimization.
 
-### results
+### Results
 Add Soon
 
 
@@ -116,7 +116,7 @@ python pretrain_12S.py --data_path Path/to/download/dataset --training_info trai
 We appreciate the previous open-source repositories [DSAC++](https://github.com/vislearn/LessMore) and [HSCNet](https://github.com/AaltoVision/hscnet).
 
 ## License
-Add soon
+Add Soon
 
 ## Citation
 Add Soon
