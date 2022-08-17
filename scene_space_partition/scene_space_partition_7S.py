@@ -197,14 +197,19 @@ class SceneSpacePartition_7S(object):
                 if lab not in label2coords.keys(): label2coords[lab] = []
                 xyzrgb = np.concatenate((coord[i,:], color[i,:]))
                 label2coords[lab].append(xyzrgb)
-        # voxel sample for each leaf.
-        print('voxel sampling')
+            if idx % 35 == 34: # to deal with large training set.
+                for key in tqdm(label2coords):
+                    xyzrgb = np.array(label2coords[key])
+                    pcd = o3d.geometry.PointCloud(o3d.utility.Vector3dVector(xyzrgb[:,0:3]))
+                    pcd.colors = o3d.utility.Vector3dVector(xyzrgb[:,3:6])
+                    pcd = pcd.voxel_down_sample(voxel_size=0.01)
+                    label2coords[key] = np.concatenate( (np.array(pcd.points), np.array(pcd.colors)), axis=1 ).tolist()
         for key in tqdm(label2coords):
             xyzrgb = np.array(label2coords[key])
             pcd = o3d.geometry.PointCloud(o3d.utility.Vector3dVector(xyzrgb[:,0:3]))
             pcd.colors = o3d.utility.Vector3dVector(xyzrgb[:,3:6])
             pcd = pcd.voxel_down_sample(voxel_size=0.01)
-            label2coords[key] = np.concatenate( (np.array(pcd.points), np.array(pcd.colors)), axis=1 )
+            label2coords[key] = np.concatenate( (np.array(pcd.points), np.array(pcd.colors)), axis=1 ).tolist()
 
         ############################
         # sample q coords each leaf.
