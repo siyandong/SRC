@@ -42,7 +42,7 @@ class SceneSpacePartition_Cambridge(object):
         self.intrinsics = np.array([[744.375, 0.0, 426.0], [0.0, 744.375, 240.0], [0.0, 0.0, 1.0]])
         self.rgbd2pc = RGBD2PointCloud(self.image_width, self.image_height, self.intrinsics)
         self.voxel_size = 0.2
-        self.q_coords = 20
+        self.q_coords = 10
     
     def load_color(self, color_path):
         color = cv2.imread(color_path, -1)
@@ -164,13 +164,13 @@ class SceneSpacePartition_Cambridge(object):
                     xyzrgb = np.array(label2coords[key])
                     pcd = o3d.geometry.PointCloud(o3d.utility.Vector3dVector(xyzrgb[:,0:3]))
                     pcd.colors = o3d.utility.Vector3dVector(xyzrgb[:,3:6])
-                    pcd = pcd.voxel_down_sample(voxel_size=0.01)
+                    pcd = pcd.voxel_down_sample(voxel_size=0.1)
                     label2coords[key] = np.concatenate( (np.array(pcd.points), np.array(pcd.colors)), axis=1 ).tolist()
         for key in tqdm(label2coords):
             xyzrgb = np.array(label2coords[key])
             pcd = o3d.geometry.PointCloud(o3d.utility.Vector3dVector(xyzrgb[:,0:3]))
             pcd.colors = o3d.utility.Vector3dVector(xyzrgb[:,3:6])
-            pcd = pcd.voxel_down_sample(voxel_size=0.01) 
+            pcd = pcd.voxel_down_sample(voxel_size=0.1) 
             label2coords[key] = np.concatenate( (np.array(pcd.points), np.array(pcd.colors)), axis=1 ).tolist()
 
         ############################
