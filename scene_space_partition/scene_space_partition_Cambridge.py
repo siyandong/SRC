@@ -41,7 +41,7 @@ class SceneSpacePartition_Cambridge(object):
         self.image_width, self.image_height = 852, 480
         self.intrinsics = np.array([[744.375, 0.0, 426.0], [0.0, 744.375, 240.0], [0.0, 0.0, 1.0]])
         self.rgbd2pc = RGBD2PointCloud(self.image_width, self.image_height, self.intrinsics)
-        self.voxel_size = 0.2
+        self.voxel_size = 0.1
         self.q_coords = 10
     
     def load_color(self, color_path):
