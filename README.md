@@ -3,7 +3,7 @@
 *[Siyan Dong](https://siyandong.github.io/), *[Shuzhe Wang](https://ffrivera0.github.io/), [Yixin Zhuang](https://yixin26.github.io/), 
 [Juho Kannala](https://users.aalto.fi/~kannalj1/), [Marc Pollefeys](https://people.inf.ethz.ch/pomarc/), [Baoquan Chen](http://cfcs.pku.edu.cn/baoquan/)
 
-\* Equal Contribution | [Video](https://www.youtube.com/watch?v=XyiRQs_3pFo&t=16s) | [Poster](https://drive.google.com/file/d/1qxxfoTPkUik9ryIoH6hCSwkhq4MOXUBQ/view?usp=sharing)
+\* Equal Contribution | [Video](https://www.youtube.com/watch?v=XyiRQs_3pFo&t) | [Poster](https://drive.google.com/file/d/1qxxfoTPkUik9ryIoH6hCSwkhq4MOXUBQ/view?usp=sharing)
 
 In this paper, we propose a scene region classification approach to achieve fast and effective scene memorization with few-shot images for scene coordinate based visual localization. Our insight is leveraging a) pre-learned feature extractor, b) scene region classifier, and c) meta-learning strategy to accelerate training while mitigating overfitting. We evaluate our method on both indoor and outdoor benchmarks. The experiments validate the effectiveness of our method in the few-shot setting, and the training time is significantly reduced to only a few minutes.
 
