@@ -3,7 +3,7 @@
 *[Siyan Dong](https://siyandong.github.io/), *[Shuzhe Wang](https://ffrivera0.github.io/), [Yixin Zhuang](https://yixin26.github.io/), 
 [Juho Kannala](https://users.aalto.fi/~kannalj1/), [Marc Pollefeys](https://people.inf.ethz.ch/pomarc/), [Baoquan Chen](http://cfcs.pku.edu.cn/baoquan/)
 
-\* Equal Contribution | [Video](https://www.youtube.com/watch?v=XyiRQs_3pFo&t=15s) | [Poster](https://drive.google.com/file/d/1qxxfoTPkUik9ryIoH6hCSwkhq4MOXUBQ/view?usp=sharing)
+\* Equal Contribution | [Video](https://www.youtube.com/watch?v=XyiRQs_3pFo&t=16s) | [Poster](https://drive.google.com/file/d/1qxxfoTPkUik9ryIoH6hCSwkhq4MOXUBQ/view?usp=sharing)
 
 In this paper, we propose a scene region classification approach to achieve fast and effective scene memorization with few-shot images for scene coordinate based visual localization. Our insight is leveraging a) pre-learned feature extractor, b) scene region classifier, and c) meta-learning strategy to accelerate training while mitigating overfitting. We evaluate our method on both indoor and outdoor benchmarks. The experiments validate the effectiveness of our method in the few-shot setting, and the training time is significantly reduced to only a few minutes.
 
@@ -14,8 +14,18 @@ The training pipeline: a hierarchical partition tree is built to divide the scen
 The camera pose estimation pipeline: given a query image, the trained network infers correspondences between image pixels and scene regions. Since each scene region corresponds to a set of scene coordinates, 2D-3D correspondences are built between image pixels and scene coordinates. Followed by a PnP algorithm with RANSAC, the camera pose is solved by optimization.
 
 ### Results
-Add Soon
 
+We provide our camera pose accuracy on the 7-Scenes dataset and Cambridge landmarks. Note that for both few-shot and original (full-training set) memorization, we use the same network capacity (∼40 MB). 
+
+| Median Error (cm / deg) | Chess | Fire | Heads | Office | Pumpkin | RedKitchen | Stairs |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Few-Shot Training | 4 / 1.23 | 4 / 1.53	| 2 / 1.56 | 5 / 1.47 | 7 / 1.75 | 6 / 1.93 | 5 / 1.47 |
+| Original Training | 3 / 0.79 | 3 / 1.03	| 2 / 0.98 | 4 / 0.94 | 4 / 1.10	| 6 / 1.39 | 4 / 1.12 |
+
+| Median Error (cm / deg) | Great Court | King's College | Old Hospital | Shop Facade | St Mary's Church |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Few-Shot Training | 81 / 0.47 | 39 / 0.69 | 38 / 0.54 | 19 / 0.99 | 31 / 1.03 |
+| Original Training | 39 / 0.21 | 21 / 0.37 | 23 / 0.37 | 5 / 0.26  | 14 / 0.41 |
 
 
 ## Setup
@@ -64,7 +74,7 @@ python partition.py --data_path Path/to/download/dataset --dataset 7S --scene ch
 #### Scene Memorizarion
 
 ```
-python train.py --data_path Path/to/download/dataset --dataset 7S --scene chess  --training_info train_fewshot.txt --n_class 64 --train_id ???
+python train.py --data_path Path/to/download/dataset --dataset 7S --scene chess --training_info train_fewshot.txt --n_class 64 --train_id ???
 ```
 
 
@@ -110,15 +120,18 @@ python pretrain_12S.py --data_path Path/to/download/dataset --training_info trai
 ```
 
 
-
 ## Acknowledgements
 
 We appreciate the previous open-source repositories [DSAC++](https://github.com/vislearn/LessMore) and [HSCNet](https://github.com/AaltoVision/hscnet).
 
+
 ## License
 Add Soon
 
+
 ## Citation
+
+If you find our work helpful in your research, please consider citing:
 ```
 @article{dong2022visual,
   title={Visual Localization via Few-Shot Scene Region Classification},
@@ -127,3 +140,4 @@ Add Soon
   year={2022}
 }
 ```
+
