@@ -125,10 +125,6 @@ python pretrain_12S.py --data_path Path/to/download/dataset --training_info trai
 We appreciate the previous open-source repositories [DSAC++](https://github.com/vislearn/LessMore) and [HSCNet](https://github.com/AaltoVision/hscnet).
 
 
-## License
-Add Soon
-
-
 ## Citation
 
 If you find our work helpful in your research, please consider citing:
