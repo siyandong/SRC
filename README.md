@@ -129,11 +129,15 @@ We appreciate the previous open-source repositories [DSAC++](https://github.com/
 
 If you find our work helpful in your research, please consider citing:
 ```
-@article{dong2022visual,
-  title={Visual Localization via Few-Shot Scene Region Classification},
+@INPROCEEDINGS{10044413,
   author={Dong, Siyan and Wang, Shuzhe and Zhuang, Yixin and Kannala, Juho and Pollefeys, Marc and Chen, Baoquan},
-  journal={arXiv preprint arXiv:2208.06933},
-  year={2022}
-}
+  booktitle={2022 International Conference on 3D Vision (3DV)}, 
+  title={Visual Localization via Few-Shot Scene Region Classification}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={393-402},
+  doi={10.1109/3DV57658.2022.00051}}
+
 ```
 
